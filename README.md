@@ -66,13 +66,49 @@ $ php -S localhost:8000 -t public
 
 ```
 
-###Test your API##
+**Test your API**
 
 Browse to http://localhost:8000/users
 
 
-Use your preferred tool example: [Postman](https://www.getpostman.com/) to perfom the following requests
+###Usage###
 
+Use your preferred tool example: [Postman](https://www.getpostman.com/) to perfom the following example requests
 
+**Add User**
+
+```
+
+{
+	"id_number": "1114567890123", "first_names": "Name", "last_name": "Surname",
+	"profile_types": {
+		"record_number": "333",
+		"msisdn": "0720112966",
+		"network": "Vodacom",
+		"points": "4",
+		"card_number": "4567233213214444",
+		"gender": "M"
+	}
+}
+
+```
+
+**Update User**
+
+```
+
+{
+	"id_number": "7900000000000", "first_names": "Name1", "last_name": "Surname1",
+	"profile_types": {
+		"record_number": "333",
+		"msisdn": "0720112966",
+		"network": "Vodacom",
+		"points": "67",
+		"card_number": "4567233213214446",
+		"gender": "F"
+	}
+}
+
+```
 
 
