@@ -2,6 +2,7 @@
 
 [GitHub](http://github.com)
 
+
 ## Installation Instructions
 
 The following instructions assumes that you are familiar with the necessary technologies required to carry out installation and that you have them already insalled in your machine.
@@ -71,14 +72,18 @@ $ php -S localhost:8000 -t public
 Browse to http://localhost:8000/users
 
 
-###Usage###
+### Usage
 
-Use your preferred tool example: [Postman](https://www.getpostman.com/) to perfom the following example requests
+Use your preferred tool example: [Postman](https://www.getpostman.com/) to perfom the following example requests:
 
 **Add User**
 
-```
+End-point: http://localhost:8000/users
 
+Body:
+
+
+```
 {
 	"id_number": "1114567890123", "first_names": "Name", "last_name": "Surname",
 	"profile_types": {
@@ -90,13 +95,16 @@ Use your preferred tool example: [Postman](https://www.getpostman.com/) to perfo
 		"gender": "M"
 	}
 }
-
 ```
 
 **Update User**
 
-```
+End-point: http://localhost:8000/users/7
 
+Body:
+
+
+```
 {
 	"id_number": "7900000000000", "first_names": "Name1", "last_name": "Surname1",
 	"profile_types": {
@@ -108,7 +116,14 @@ Use your preferred tool example: [Postman](https://www.getpostman.com/) to perfo
 		"gender": "F"
 	}
 }
-
 ```
 
+**Search User - by id_number**
+
+End-point: http://localhost:8000/users/7900000000000
+
+
+**Delete User - by id_number**
+
+End-point: http://localhost:8000/users/7900000000000
 
