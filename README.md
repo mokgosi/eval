@@ -58,6 +58,7 @@ DB_PASSWORD=password
 ```
 
 **Start your local server**
+
 ```
 
 $ cd to-your-project-root
@@ -65,6 +66,12 @@ $ php -S localhost:8000 -t public
 
 ```
 
+###Test your API##
+
+Browse to http://localhost:8000/users
+
+
+Use your preferred tool example: [Postman](https://www.getpostman.com/) to perfom the following requests
 
 
 
