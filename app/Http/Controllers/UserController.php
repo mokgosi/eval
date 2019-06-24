@@ -71,7 +71,7 @@ class UserController extends Controller
             "profile_types.msisdn" => "required|numeric",
             "profile_types.network" => "required|string",
             "profile_types.points" => "required|numeric",
-            "profile_types.card_number" => "required|numeric",
+            "profile_types.card_number" => "required|digits:16",
             "profile_types.gender" => "required|in:M,F",
 
         ]);
@@ -83,6 +83,10 @@ class UserController extends Controller
         $types = Type::all()->pluck('id', 'type');
 
         foreach ($profile_types as $key => $value) {
+
+            if($key === 'msisdn') {
+                $value = '0'.substr( preg_replace('/[^0-9]/', '', trim($value)), -9);
+            }
 
             $user->profiles()->create([
                 'tTYPES_id' => $types[$key],
@@ -103,7 +107,7 @@ class UserController extends Controller
             "profile_types.msisdn" => "required|numeric",
             "profile_types.network" => "required|string",
             "profile_types.points" => "required|numeric",
-            "profile_types.card_number" => "required|numeric",
+            "profile_types.card_number" => "required|digits:16",
             "profile_types.gender" => "required|in:M,F",
         ]);
 

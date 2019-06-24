@@ -74,7 +74,10 @@ Browse to http://localhost:8000/users
 
 ### Usage
 
+All requests are of Content-type: application/json header.
+
 Use your preferred tool example: [Postman](https://www.getpostman.com/) to perfom the following example requests:
+
 
 **Add User**
 
