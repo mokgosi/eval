@@ -14,6 +14,9 @@ Based on:
 * laravel/lumen-framework 5.8
 
 
+**NOTE:** For this API to work, you must have created a database and actioned files/question2.sql to create tables and run files/question3.php to import fixture data. I suggest you create a quick project folder in your project folder and put these files and execute them from in there.
+
+
 ### Clone the repository:
 ```
 
@@ -28,7 +31,7 @@ $ composer update
 
 ```
 
-### Create Database
+### Create Database  (ignore - exists already from question 2)
 
 ```
 
