@@ -6,6 +6,7 @@ CREATE TABLE `tUSER` (
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE(`id_number`),
   INDEX user_id_num_ind (id_number)
 );
 
