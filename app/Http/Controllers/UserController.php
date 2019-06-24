@@ -9,6 +9,11 @@ use DB;
 
 class UserController extends Controller
 {
+    /**
+     * Retrieve all users
+     *
+     * @return Response
+     */
     public function getUsers()
     {
         
@@ -34,6 +39,12 @@ class UserController extends Controller
         return response()->json($collection);
     }
 
+    /**
+     * Retrieve the user for the given ID.
+     *
+     * @param  int  $id
+     * @return Response
+     */
     public function getUser($id)
     {
         $users = DB::table('tuser')
@@ -60,6 +71,12 @@ class UserController extends Controller
         return response()->json($flattened);
     }
 
+    /**
+     * Store a new user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
     public function create(Request $request)
     {
         $this->validate($request, [
@@ -82,8 +99,9 @@ class UserController extends Controller
 
         $types = Type::all()->pluck('id', 'type');
 
+        //persist user profile types
         foreach ($profile_types as $key => $value) {
-
+            //format phone number
             if($key === 'msisdn') {
                 $value = '0'.substr( preg_replace('/[^0-9]/', '', trim($value)), -9);
             }
@@ -97,6 +115,13 @@ class UserController extends Controller
         return response()->json($user, 201);
     }
 
+
+    /**
+     * Update user.
+     * @param  $id
+     * @param  Request  $request
+     * @return Response
+     */
     public function update($id, Request $request)
     {
         $this->validate($request, [
@@ -118,7 +143,13 @@ class UserController extends Controller
         
         $types = Type::all()->pluck('id', 'type');
 
+        //update user profile types
         foreach ($profile_types as $key => $value) {
+
+             //format phone number
+            if($key === 'msisdn') {
+                $value = '0'.substr( preg_replace('/[^0-9]/', '', trim($value)), -9);
+            }
 
             $profile = Profile::where([
                 ['tUSER_id', '=', $user->id],
@@ -139,6 +170,11 @@ class UserController extends Controller
         return response()->json($user, 200);
     }
 
+    /**
+     * Delete user.
+     *
+     * @return Response
+     */
     public function delete($id)
     {
         User::findOrFail($id)->delete();
